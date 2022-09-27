@@ -28,7 +28,7 @@
 
 #### Required variables to define in configuration.yml
 Here are the variables we need to define in this file:
-<code>
+```
 DB_DEVELOPMENT: development_db_name
 
 DB_DEVELOPMENT_USERNAME: development_db_username
@@ -44,4 +44,4 @@ DB_PRODUCTION_PASSWORD: production_db_password_xxx
 DB_TEST: test_db_name
 
 MYSQL_SOCKET: /tmp/mysql.sock
-</code>
+```
