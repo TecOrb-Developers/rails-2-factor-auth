@@ -1,4 +1,7 @@
-# Rails base setup
+# Rails 2 Factor Authentication
+
+##  What is Two-Factor Authentication (2FA)?
+2FA is an extra layer of security used to make sure that people trying to gain access to an online account are who they say they are. First, a user will enter their username and a password. Then, instead of immediately gaining access, they will be required to provide another piece of information.
 
 ## What we have implemented in this project?
 	- User Signup
