@@ -48,3 +48,47 @@ DB_TEST: test_db_name
 
 MYSQL_SOCKET: /tmp/mysql.sock
 ```
+
+### Rails 7 active record encryption configuration 
+Here are the steps to implement Active Record Encryption in Rails 7.
+
+Step 1. Generate active record encryption keys.
+
+``````
+rails db:encryption:init
+# Above will return:
+
+# active_record_encryption:
+#   primary_key: rdxoZXGHCyhB3LIFwLAcSjZKDC4kPpu9
+#   deterministic_key: mFS1pVwO3pQpBhI7nPUPK08y7JpmRzAo
+#   key_derivation_salt: 6Lv9Hsk5WN7h0zPSyMKNdkk1yfoIlcnR
+``````
+
+Step 2. Add the generated key set to your Rails application's credentials file.
+
+Here is the [link to add encrypted secrets in rails](https://edgeguides.rubyonrails.org/security.html#custom-credentials)
+
+
+- Rails stores secrets in `config/credentials.yml.enc`, which is encrypted and hence cannot be edited directly. 
+
+- Rails uses `config/master.key` or alternatively looks for the environment variable `ENV["RAILS_MASTER_KEY"]` to encrypt the credentials file. 
+
+- Because the credentials file is encrypted, it can be stored in version control, as long as the master key is kept safe.
+
+- By default, the credentials file contains the application's secret_key_base. It can also be used to store other secrets such as access keys for external APIs.
+
+- To edit the credentials file, run `EDITOR="nano --wait" bin/rails credentials:edit`
+
+- This command will create the credentials file if it does not exist. Additionally, this command will create config/master.key if no master key is defined.
+
+Secrets kept in the credentials file are accessible via Rails.application.credentials. For example, with the following decrypted config/credentials.yml.enc:
+
+````
+secret_key_base: 3b7cd72...
+some_api_key: SOMEKEY
+system:
+  access_key_id: 1234AB
+````
+
+- `Rails.application.credentials.some_api_key` returns *"SOMEKEY"*. `Rails.application.credentials.system.access_key_id` returns "1234AB"
+
