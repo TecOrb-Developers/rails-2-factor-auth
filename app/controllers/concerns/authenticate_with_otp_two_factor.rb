@@ -23,7 +23,7 @@ module AuthenticateWithOtpTwoFactor
     @user = user
 
     session[:otp_user_id] = user.id
-    render 'devise/sessions/two_factor'
+    render 'devise/sessions/two_factor', status: :unprocessable_entity
   end
 
   def authenticate_user_with_otp_two_factor(user)
