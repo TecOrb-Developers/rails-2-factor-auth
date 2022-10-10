@@ -92,3 +92,14 @@ system:
 
 - `Rails.application.credentials.some_api_key` returns *"SOMEKEY"*. `Rails.application.credentials.system.access_key_id` returns "1234AB"
 
+### Issues - Rails 7 link_to is not sending delete requests also confirm not working.
+#### Solution: 
+Run below for Rails 7
+
+    $ rails importmap:install 
+    $ rails turbo:install stimulus:install
+  
+Make sure you are using `turbo_method` like:
+
+    <%= link_to "Sign Out", destroy_user_session_path, data: { turbo_method: :delete }, class: "nav-link" %>
+
