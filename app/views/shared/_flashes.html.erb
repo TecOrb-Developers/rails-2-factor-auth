@@ -1,0 +1,5 @@
+<%if notice.present? || flash[:notice].present? %>
+  <div class="alert alert-info"><%= notice || flash[:notice]%></div>
+<%elsif alert.present? || flash[:alert].present?%>
+  <div class="alert alert-danger"><%= alert || flash[:alert]%></div>
+<%end%>

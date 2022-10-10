@@ -13,7 +13,7 @@ class TwoFactorSettingsController < ApplicationController
   def create
     unless current_user.valid_password?(enable_2fa_params[:password])
       flash.now[:alert] = 'Incorrect password'
-      return render :new
+      return render :new, status: :unprocessable_entity
     end
 
     if current_user.validate_and_consume_otp!(enable_2fa_params[:code])
@@ -22,8 +22,8 @@ class TwoFactorSettingsController < ApplicationController
       flash[:notice] = 'Successfully enabled two factor authentication, please make note of your backup codes.'
       redirect_to edit_two_factor_settings_path
     else
-      flash.now[:alert] = 'Incorrect Code'
-      render :new
+      flash[:alert] = 'Incorrect Code'
+      render :new, status: :unprocessable_entity
     end
   end
 
