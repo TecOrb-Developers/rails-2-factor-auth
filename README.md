@@ -8,6 +8,14 @@
 	- User Login via password
 	- Enable/Disable 2FA Authentication from dashboard
 	- 2FA Login and access dashboard
+Here are the Wiki links (Or you can directly visit the [Wiki page](https://github.com/TecOrb-Developers/rails-2-factor-auth/wiki#welcome-to-the-rails-2-factor-auth-wiki))
+- [How it works?](https://github.com/TecOrb-Developers/rails-2-factor-auth/wiki#how-it-works)
+	- [Login User](https://github.com/TecOrb-Developers/rails-2-factor-auth/wiki#step-1-login-user)
+	- [Dashboard access](https://github.com/TecOrb-Developers/rails-2-factor-auth/wiki#step-2-dashboard-access)
+	- [Enable Two-Factor Login via QR Code](https://github.com/TecOrb-Developers/rails-2-factor-auth/wiki#step-3-enable-two-factor-login-via-qr-code)
+	- [Two-Factor login with OTP](https://github.com/TecOrb-Developers/rails-2-factor-auth/wiki#step-4-two-factor-login-with-otp)
+	- [Confirm Two-Factor login via OTP](https://github.com/TecOrb-Developers/rails-2-factor-auth/wiki#step-5-confirm-two-factor-login-via-otp)
+	- [Two-Factor login success / Disable Two-Factor](https://github.com/TecOrb-Developers/rails-2-factor-auth/wiki#step-6-two-factor-login-success)
 
 ## Required dependencies: 
   * Ruby is installed (v 3.1.2)  
@@ -32,19 +40,19 @@
 #### Required variables to define in configuration.yml
 Here are the variables we need to define in this file:
 ```
-DB_DEVELOPMENT: development_db_name
+DB_DEVELOPMENT: db_name_development
 
-DB_DEVELOPMENT_USERNAME: development_db_username
+DB_DEVELOPMENT_USERNAME: db_username
 
-DB_DEVELOPMENT_PASSWORD: development_db_password
+DB_DEVELOPMENT_PASSWORD: db_password
 
-DB_PRODUCTION: production_db_name_xxx
+DB_PRODUCTION: db_name_production
 
-DB_PRODUCTION_USERNAME: production_db_username_xxx
+DB_PRODUCTION_USERNAME: production_db_username
 
-DB_PRODUCTION_PASSWORD: production_db_password_xxx
+DB_PRODUCTION_PASSWORD: production_db_password
 
-DB_TEST: test_db_name
+DB_TEST: db_name_test
 
 MYSQL_SOCKET: /tmp/mysql.sock
 ```
